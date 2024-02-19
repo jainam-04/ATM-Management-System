@@ -5,13 +5,13 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Signup2 extends JFrame implements ActionListener {
+public class SignUp2 extends JFrame implements ActionListener {
     String formNo;
     JComboBox comboBoxReligion, comboBoxCategory, comboBoxIncome, comboBoxEducation, comboBoxOccupation;
     JTextField textFieldPan, textFieldAadhar;
     JRadioButton radioButton1, radioButton2, radioButton3, radioButton4;
     JButton buttonNext;
-    Signup2(String first){
+    SignUp2(String first){
         super("APPLICATION FORM");
 
         ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("Icon/bank.png"));
@@ -186,6 +186,6 @@ public class Signup2 extends JFrame implements ActionListener {
     }
 
     public static void main(String[] args) {
-        new Signup2("");
+        new SignUp2("");
     }
 }

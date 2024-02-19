@@ -221,7 +221,7 @@ public class SignUp extends JFrame implements ActionListener {
                 JDBCConnection connection = new JDBCConnection();
                 String query = "insert into signup values('"+formNo+"', '"+name+"', '"+fatherName+"', '"+dob+"', '"+gender+"', '"+email+"', '"+marriedStatus+"', '"+address+"', '"+city+"', '"+pin+"', '"+state+"')";
                 connection.statement.executeUpdate(query);
-                new Signup2(first);
+                new SignUp2(first);
                 setVisible(false);
             }
         }
