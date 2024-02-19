@@ -77,13 +77,13 @@ public class SignUp extends JFrame implements ActionListener {
         add(labelGender);
 
         radioButton1 = new JRadioButton("Male");
-        radioButton1.setBackground(new Color(222, 225, 228));
+        radioButton1.setBackground(new Color(222, 255, 228));
         radioButton1.setFont(new Font("Railway", Font.BOLD, 14));
         radioButton1.setBounds(300, 340, 60, 30);
         add(radioButton1);
 
         radioButton2 = new JRadioButton("Female");
-        radioButton2.setBackground(new Color(222, 225, 228));
+        radioButton2.setBackground(new Color(222, 255, 228));
         radioButton2.setFont(new Font("Railway", Font.BOLD, 14));
         radioButton2.setBounds(450, 340, 90, 30);
         add(radioButton2);
@@ -108,19 +108,19 @@ public class SignUp extends JFrame implements ActionListener {
         add(labelMarried);
 
         radioButtonMarried = new JRadioButton("Married");
-        radioButtonMarried.setBackground(new Color(222, 225, 228));
+        radioButtonMarried.setBackground(new Color(222, 255, 228));
         radioButtonMarried.setFont(new Font("Railway", Font.BOLD, 14));
         radioButtonMarried.setBounds(300, 440, 100, 30);
         add(radioButtonMarried);
 
         radioButtonUnmarried = new JRadioButton("Unmarried");
-        radioButtonUnmarried.setBackground(new Color(222, 225, 228));
+        radioButtonUnmarried.setBackground(new Color(222, 255, 228));
         radioButtonUnmarried.setFont(new Font("Railway", Font.BOLD, 14));
         radioButtonUnmarried.setBounds(450, 440, 100, 30);
         add(radioButtonUnmarried);
 
         radioButtonOther = new JRadioButton("Other");
-        radioButtonOther.setBackground(new Color(222, 225, 228));
+        radioButtonOther.setBackground(new Color(222, 255, 228));
         radioButtonOther.setFont(new Font("Railway", Font.BOLD, 14));
         radioButtonOther.setBounds(600, 440, 100, 30);
         add(radioButtonOther);
@@ -178,7 +178,7 @@ public class SignUp extends JFrame implements ActionListener {
         buttonNext.addActionListener(this);
         add(buttonNext);
 
-        getContentPane().setBackground(new Color(222, 225, 228));
+        getContentPane().setBackground(new Color(222, 255, 228));
         setLayout(null);
         setSize(850, 800);
         setLocation(360, 40);
@@ -221,7 +221,7 @@ public class SignUp extends JFrame implements ActionListener {
                 JDBCConnection connection = new JDBCConnection();
                 String query = "insert into signup values('"+formNo+"', '"+name+"', '"+fatherName+"', '"+dob+"', '"+gender+"', '"+email+"', '"+marriedStatus+"', '"+address+"', '"+city+"', '"+pin+"', '"+state+"')";
                 connection.statement.executeUpdate(query);
-                new Signup2();
+                new Signup2(first);
                 setVisible(false);
             }
         }
