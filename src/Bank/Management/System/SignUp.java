@@ -31,7 +31,7 @@ public class SignUp extends JFrame implements ActionListener {
         label1.setFont(new Font("Railway", Font.BOLD, 38));
         add(label1);
 
-        JLabel label2 = new JLabel("Page 1");
+        JLabel label2 = new JLabel("Page 1 :- ");
         label2.setFont(new Font("Railway", Font.BOLD, 22));
         label2.setBounds(330, 70, 600, 30);
         add(label2);
