@@ -152,8 +152,8 @@ public class SignUp2 extends JFrame implements ActionListener {
         add(radioButton4);
 
         ButtonGroup buttonGroup2 = new ButtonGroup();
-        buttonGroup1.add(radioButton3);
-        buttonGroup1.add(radioButton4);
+        buttonGroup2.add(radioButton3);
+        buttonGroup2.add(radioButton4);
 
         JLabel labelForm = new JLabel("Form No :");
         labelForm.setFont(new Font("Railway", Font.BOLD, 18));
@@ -182,7 +182,42 @@ public class SignUp2 extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-
+        String religion = (String) comboBoxReligion.getSelectedItem();
+        String category = (String) comboBoxCategory.getSelectedItem();
+        String income = (String) comboBoxIncome.getSelectedItem();
+        String education = (String) comboBoxEducation.getSelectedItem();
+        String occupation = (String) comboBoxOccupation.getSelectedItem();
+        String pan = textFieldPan.getText();
+        String aadhar = textFieldAadhar.getText();
+        String seniorCitizen = null;
+        if(radioButton1.isSelected()){
+            seniorCitizen = "Yes";
+        }
+        else{
+            seniorCitizen = "No";
+        }
+        String existingAccount = null;
+        if(radioButton3.isSelected()){
+            existingAccount = "Yes";
+        }
+        else{
+            existingAccount = "No";
+        }
+        try{
+            if(pan.equals("") || aadhar.equals("")){
+                JOptionPane.showMessageDialog(null, "Fill all the fields!");
+            }
+            else{
+                JDBCConnection connection = new JDBCConnection();
+                String query = "insert into signup2 values('"+formNo+"', '"+religion+"', '"+category+"', '"+income+"', '"+education+"', '"+occupation+"', '"+pan+"', '"+aadhar+"', '"+seniorCitizen+"', '"+existingAccount+"')";
+                connection.statement.executeUpdate(query);
+                new SignUp3(formNo);
+                setVisible(false);
+            }
+        }
+        catch(Exception E){
+            E.printStackTrace();
+        }
     }
 
     public static void main(String[] args) {
