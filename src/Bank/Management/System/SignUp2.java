@@ -193,14 +193,14 @@ public class SignUp2 extends JFrame implements ActionListener {
         if(radioButton1.isSelected()){
             seniorCitizen = "Yes";
         }
-        else{
+        else if(radioButton2.isSelected()){
             seniorCitizen = "No";
         }
         String existingAccount = null;
         if(radioButton3.isSelected()){
             existingAccount = "Yes";
         }
-        else{
+        else if(radioButton4.isSelected()){
             existingAccount = "No";
         }
         try{

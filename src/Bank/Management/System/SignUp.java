@@ -195,7 +195,7 @@ public class SignUp extends JFrame implements ActionListener {
         if(radioButton1.isSelected()){
             gender = "Male";
         }
-        else{
+        else if(radioButton2.isSelected()){
             gender = "Female";
         }
         String email = textFieldEmail.getText();
@@ -206,7 +206,7 @@ public class SignUp extends JFrame implements ActionListener {
         else if(radioButtonUnmarried.isSelected()){
             marriedStatus = "Unmarried";
         }
-        else{
+        else if(radioButtonOther.isSelected()){
             marriedStatus = "Other";
         }
         String address = textFieldAddress.getText();
