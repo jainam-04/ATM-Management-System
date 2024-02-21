@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Date;
 
 public class Deposit extends JFrame implements ActionListener {
     String pin;
@@ -54,7 +55,28 @@ public class Deposit extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-
+        try{
+            String amount = textField1.getText();
+            Date date = new Date();
+            if(e.getSource() == buttonDeposit){
+                if(amount.equals("")){
+                    JOptionPane.showMessageDialog(null, "Please enter the amount you want to deposit!");
+                }
+                else{
+                    JDBCConnection connection = new JDBCConnection();
+                    String query = "insert into bank values('"+pin+"', '"+date+"', 'Deposit', '"+amount+"')";
+                    connection.statement.executeUpdate(query);
+                    JOptionPane.showMessageDialog(null, "Rs. " + amount + " is Deposited Successfully!");
+                    setVisible(false);
+                }
+            }
+            else if(e.getSource() == buttonBack){
+                setVisible(false);
+            }
+        }
+        catch(Exception E){
+            E.printStackTrace();
+        }
     }
 
     public static void main(String[] args) {
