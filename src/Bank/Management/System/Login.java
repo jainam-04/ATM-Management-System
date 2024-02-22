@@ -111,6 +111,9 @@ public class Login extends JFrame implements ActionListener {
                             new MainScreen(pin);
                             setVisible(false);
                         }
+                        else{
+                            JOptionPane.showMessageDialog(null, "Incorrect Card Number ot PIN!");
+                        }
                     }
                 }
                 catch(Exception E){

@@ -85,6 +85,9 @@ public class MainScreen extends JFrame implements ActionListener {
             new Deposit(pin);
             setVisible(false);
         }
+        else if(e.getSource() == buttonExit){
+            System.exit(0);
+        }
     }
 
     public static void main(String[] args) {
