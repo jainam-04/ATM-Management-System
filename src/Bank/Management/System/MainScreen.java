@@ -85,6 +85,10 @@ public class MainScreen extends JFrame implements ActionListener {
             new Deposit(pin);
             setVisible(false);
         }
+        else if(e.getSource() == buttonWithdrawal){
+            new Withdrawal(pin);
+            setVisible(false);
+        }
         else if(e.getSource() == buttonExit){
             System.exit(0);
         }
