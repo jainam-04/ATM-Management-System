@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.ResultSet;
 
 public class Login extends JFrame implements ActionListener {
     JLabel label1, label2, label3;
@@ -96,7 +97,25 @@ public class Login extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         try{
             if(e.getSource() == button1){
-
+                String cardNo = textField2.getText();
+                String pin = String.valueOf(passwordField3.getPassword());
+                try{
+                    if(cardNo.equals("") || pin.equals("")){
+                        JOptionPane.showMessageDialog(null, "Fill all the fields!");
+                    }
+                    else{
+                        JDBCConnection connection = new JDBCConnection();
+                        String query = "select * from login where cardNo = '"+cardNo+"' and pin = '"+pin+"'";
+                        ResultSet resultSet = connection.statement.executeQuery(query);
+                        if(resultSet.next()){
+                            new MainScreen(pin);
+                            setVisible(false);
+                        }
+                    }
+                }
+                catch(Exception E){
+                    E.printStackTrace();
+                }
             }
             else if(e.getSource() == button2){
                 textField2.setText("");
