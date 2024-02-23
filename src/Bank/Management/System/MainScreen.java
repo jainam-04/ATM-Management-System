@@ -93,6 +93,10 @@ public class MainScreen extends JFrame implements ActionListener {
             new FastCash(pin);
             setVisible(false);
         }
+        else if(e.getSource() == buttonPinChange){
+            new ChangePin(pin);
+            setVisible(false);
+        }
         else if(e.getSource() == buttonBalance){
             new BalanceEnquiry(pin);
             setVisible(false);

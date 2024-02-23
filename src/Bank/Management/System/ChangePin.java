@@ -8,7 +8,10 @@ import java.awt.event.ActionListener;
 public class ChangePin extends JFrame implements ActionListener {
     JButton buttonChange, buttonBack;
     JPasswordField passwordField1, passwordField2;
-    ChangePin(){
+    String pin;
+    ChangePin(String pin){
+        this.pin = pin;
+
         ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("Icon/atm2.png"));
         Image i2 = i1.getImage().getScaledInstance(1550, 830, Image.SCALE_DEFAULT);
         ImageIcon i3 = new ImageIcon(i2);
@@ -70,10 +73,42 @@ public class ChangePin extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-
+        try{
+            String pin1 = String.valueOf(passwordField1.getPassword());
+            String pin2 = String.valueOf(passwordField2.getPassword());
+            if(!pin1.equals(pin2)){
+                JOptionPane.showMessageDialog(null, "Entered PIN does not match!");
+                return;
+            }
+            if(e.getSource() == buttonChange){
+                if(pin1.equals("")){
+                    JOptionPane.showMessageDialog(null, "Enter new PIN!");
+                }
+                if(pin2.equals("")){
+                    JOptionPane.showMessageDialog(null, "Re-enter new PIN!");
+                }
+                JDBCConnection connection = new JDBCConnection();
+                String query1 = "update bank set pin = '"+pin1+"' where pin = '"+pin+"'";
+                connection.statement.executeUpdate(query1);
+                String query2 = "update login set pin = '"+pin1+"' where pin = '"+pin+"'";
+                connection.statement.executeUpdate(query2);
+                String query3 = "update signup3 set pin = '"+pin1+"' where pin = '"+pin+"'";
+                connection.statement.executeUpdate(query3);
+                JOptionPane.showMessageDialog(null, "PIN is Changed Successfully!");
+                new MainScreen(pin);
+                setVisible(false);
+            }
+            else if(e.getSource() == buttonBack){
+                new MainScreen(pin);
+                setVisible(false);
+            }
+        }
+        catch(Exception E){
+            E.printStackTrace();
+        }
     }
 
     public static void main(String[] args) {
-        new ChangePin();
+        new ChangePin("");
     }
 }
