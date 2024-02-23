@@ -10,7 +10,9 @@ public class BalanceEnquiry extends JFrame implements ActionListener {
     String pin;
     JLabel label3;
     JButton buttonBack;
-    BalanceEnquiry(){
+    BalanceEnquiry(String pin){
+        this.pin = pin;
+
         ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("Icon/atm2.png"));
         Image i2 = i1.getImage().getScaledInstance(1550, 830, Image.SCALE_DEFAULT);
         ImageIcon i3 = new ImageIcon(i2);
@@ -72,6 +74,6 @@ public class BalanceEnquiry extends JFrame implements ActionListener {
     }
 
     public static void main(String[] args) {
-        new BalanceEnquiry();
+        new BalanceEnquiry("");
     }
 }

@@ -10,7 +10,7 @@ import java.util.Date;
 public class Withdrawal extends JFrame implements ActionListener {
     String pin;
     JTextField textField1;
-    JButton buttonDeposit, buttonBack;
+    JButton buttonWithdrawal, buttonBack;
     Withdrawal(String pin){
         this.pin = pin;
 
@@ -40,12 +40,12 @@ public class Withdrawal extends JFrame implements ActionListener {
         textField1.setForeground(Color.WHITE);
         label1.add(textField1);
 
-        buttonDeposit = new JButton("WITHDRAWAL");
-        buttonDeposit.setBackground(new Color(65, 125, 128));
-        buttonDeposit.setForeground(Color.WHITE);
-        buttonDeposit.setBounds(700, 363, 150, 35);
-        buttonDeposit.addActionListener(this);
-        label1.add(buttonDeposit);
+        buttonWithdrawal = new JButton("WITHDRAWAL");
+        buttonWithdrawal.setBackground(new Color(65, 125, 128));
+        buttonWithdrawal.setForeground(Color.WHITE);
+        buttonWithdrawal.setBounds(700, 363, 150, 35);
+        buttonWithdrawal.addActionListener(this);
+        label1.add(buttonWithdrawal);
 
         buttonBack = new JButton("BACK");
         buttonBack.setBackground(new Color(65, 125, 128));
@@ -65,29 +65,35 @@ public class Withdrawal extends JFrame implements ActionListener {
         try{
             String amount = textField1.getText();
             Date date = new Date();
-            if(amount.equals("")){
-                JOptionPane.showMessageDialog(null, "Please enter the amount you want to withdraw!");
+            if(e.getSource() == buttonWithdrawal){
+                if(amount.equals("")){
+                    JOptionPane.showMessageDialog(null, "Please enter the amount you want to withdraw!");
+                }
+                else{
+                    JDBCConnection connection = new JDBCConnection();
+                    String query1 = "select * from bank where pin = '"+pin+"'";
+                    ResultSet resultSet = connection.statement.executeQuery(query1);
+                    int balance = 0;
+                    while(resultSet.next()){
+                        if(resultSet.getString("type").equals("Deposit")){
+                            balance += Integer.parseInt(resultSet.getString("amount"));
+                        }
+                        else{
+                            balance -= Integer.parseInt(resultSet.getString("amount"));
+                        }
+                    }
+                    if(balance < Integer.parseInt(amount)){
+                        JOptionPane.showMessageDialog(null, "Insufficient Balance!");
+                        return;
+                    }
+                    String query2 = "insert into bank values('"+pin+"', '"+date+"', 'Withdrawal', '"+amount+"')";
+                    connection.statement.executeUpdate(query2);
+                    JOptionPane.showMessageDialog(null, "Rs. " + amount + " is Debited Successfully!");
+                    new MainScreen(pin);
+                    setVisible(false);
+                }
             }
-            else{
-                JDBCConnection connection = new JDBCConnection();
-                String query1 = "select * from bank where pin = '"+pin+"'";
-                ResultSet resultSet = connection.statement.executeQuery(query1);
-                int balance = 0;
-                while(resultSet.next()){
-                    if(resultSet.getString("type").equals("Deposit")){
-                        balance += Integer.parseInt(resultSet.getString("amount"));
-                    }
-                    else{
-                        balance -= Integer.parseInt(resultSet.getString("amount"));
-                    }
-                }
-                if(balance < Integer.parseInt(amount)){
-                    JOptionPane.showMessageDialog(null, "Insufficient Balance!");
-                    return;
-                }
-                String query2 = "insert into bank values('"+pin+"', '"+date+"', 'Withdrawal', '"+amount+"')";
-                connection.statement.executeUpdate(query2);
-                JOptionPane.showMessageDialog(null, "Rs. " + amount + " is Debited Successfully!");
+            else if(e.getSource() == buttonBack){
                 new MainScreen(pin);
                 setVisible(false);
             }
