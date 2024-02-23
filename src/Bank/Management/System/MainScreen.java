@@ -18,7 +18,7 @@ public class MainScreen extends JFrame implements ActionListener {
         label1.setBounds(0, 0, 1550, 830);
         add(label1);
 
-        JLabel label2 = new JLabel("Please Select Your Transaction");
+        JLabel label2 = new JLabel("PLEASE SELECT YOUR TRANSACTION");
         label2.setFont(new Font("System", Font.BOLD, 28));
         label2.setBounds(430, 180, 700, 35);
         label2.setForeground(Color.WHITE);
