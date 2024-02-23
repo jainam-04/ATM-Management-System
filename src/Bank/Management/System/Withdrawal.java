@@ -86,6 +86,9 @@ public class Withdrawal extends JFrame implements ActionListener {
                         JOptionPane.showMessageDialog(null, "Insufficient Balance!");
                         return;
                     }
+                    if(Integer.parseInt(amount) >= 10000){
+                        JOptionPane.showMessageDialog(null, "Please Enter Amount Less Than Rs. 10000");
+                    }
                     String query2 = "insert into bank values('"+pin+"', '"+date+"', 'Withdrawal', '"+amount+"')";
                     connection.statement.executeUpdate(query2);
                     JOptionPane.showMessageDialog(null, "Rs. " + amount + " is Debited Successfully!");
