@@ -83,9 +83,11 @@ public class ChangePin extends JFrame implements ActionListener {
             if(e.getSource() == buttonChange){
                 if(pin1.equals("")){
                     JOptionPane.showMessageDialog(null, "Enter new PIN!");
+                    return;
                 }
                 if(pin2.equals("")){
                     JOptionPane.showMessageDialog(null, "Re-enter new PIN!");
+                    return;
                 }
                 JDBCConnection connection = new JDBCConnection();
                 String query1 = "update bank set pin = '"+pin1+"' where pin = '"+pin+"'";
