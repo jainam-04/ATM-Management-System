@@ -51,14 +51,14 @@ public class ChangePin extends JFrame implements ActionListener {
         passwordField2.setBounds(600, 270, 180, 25);
         label1.add(passwordField2);
 
-        buttonChange = new JButton("Change");
+        buttonChange = new JButton("CHANGE");
         buttonChange.setBackground(new Color(65, 125, 128));
         buttonChange.setForeground(Color.WHITE);
         buttonChange.setBounds(700, 363, 150, 35);
         buttonChange.addActionListener(this);
         label1.add(buttonChange);
 
-        buttonBack = new JButton("Back");
+        buttonBack = new JButton("BACK");
         buttonBack.setBackground(new Color(65, 125, 128));
         buttonBack.setForeground(Color.WHITE);
         buttonBack.setBounds(700, 410, 150, 35);
@@ -68,6 +68,7 @@ public class ChangePin extends JFrame implements ActionListener {
         setLayout(null);
         setSize(1550, 1080);
         setLocation(0, 0);
+        setUndecorated(true);
         setVisible(true);
     }
 

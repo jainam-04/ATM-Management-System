@@ -165,7 +165,7 @@ public class SignUp2 extends JFrame implements ActionListener {
         labelNumber.setBounds(750, 10, 100, 30);
         add(labelNumber);
 
-        buttonNext = new JButton("Next");
+        buttonNext = new JButton("NEXT");
         buttonNext.setForeground(Color.BLACK);
         buttonNext.setBounds(570, 640, 100, 30);
         buttonNext.setBackground(Color.WHITE);
@@ -177,6 +177,7 @@ public class SignUp2 extends JFrame implements ActionListener {
         setSize(850, 750);
         setLocation(450, 80);
         getContentPane().setBackground(new Color(252, 208, 76));
+        setUndecorated(true);
         setVisible(true);
     }
 

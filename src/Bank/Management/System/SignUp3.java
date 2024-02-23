@@ -160,7 +160,7 @@ public class SignUp3 extends JFrame implements ActionListener {
         labelNumber.setBounds(750, 10, 100, 30);
         add(labelNumber);
 
-        buttonSubmit = new JButton("Submit");
+        buttonSubmit = new JButton("SUBMIT");
         buttonSubmit.setFont(new Font("Railway", Font.BOLD, 18));
         buttonSubmit.setBounds(220, 700, 100, 30);
         buttonSubmit.setBackground(Color.BLACK);
@@ -168,7 +168,7 @@ public class SignUp3 extends JFrame implements ActionListener {
         buttonSubmit.addActionListener(this);
         add(buttonSubmit);
 
-        buttonCancel = new JButton("Cancel");
+        buttonCancel = new JButton("CANCEL");
         buttonCancel.setFont(new Font("Railway", Font.BOLD, 18));
         buttonCancel.setBounds(420, 700, 100, 30);
         buttonCancel.setBackground(Color.BLACK);
@@ -180,6 +180,7 @@ public class SignUp3 extends JFrame implements ActionListener {
         setLayout(null);
         setLocation(400, 20);
         getContentPane().setBackground(new Color(215, 252, 252));
+        setUndecorated(true);
         setVisible(true);
     }
 

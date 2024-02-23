@@ -1,7 +1,6 @@
 package Bank.Management.System;
 
 import com.toedter.calendar.JDateChooser;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -170,7 +169,7 @@ public class SignUp extends JFrame implements ActionListener {
         textFieldState.setBounds(300, 640, 400, 30);
         add(textFieldState);
 
-        buttonNext = new JButton("Next");
+        buttonNext = new JButton("NEXT");
         buttonNext.setFont(new Font("Railway", Font.BOLD, 14));
         buttonNext.setBackground(Color.BLACK);
         buttonNext.setForeground(Color.WHITE);
@@ -182,6 +181,7 @@ public class SignUp extends JFrame implements ActionListener {
         setLayout(null);
         setSize(850, 800);
         setLocation(360, 40);
+        setUndecorated(true);
         setVisible(true);
     }
 

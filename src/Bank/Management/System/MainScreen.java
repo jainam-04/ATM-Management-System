@@ -76,6 +76,7 @@ public class MainScreen extends JFrame implements ActionListener {
         setLayout(null);
         setSize(1550, 1080);
         setLocation(0, 0);
+        setUndecorated(true);
         setVisible(true);
     }
 

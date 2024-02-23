@@ -47,7 +47,7 @@ public class MiniStatement extends JFrame implements ActionListener {
             String query = "select * from bank where pin = '"+pin+"'";
             ResultSet resultSet = connection.statement.executeQuery(query);
             while(resultSet.next()){
-                label1.setText(label1.getText() + "<html>" + resultSet.getString("date") + "&nbsp;nbsp;&nbsp;&nbsp;&nbsp;" + resultSet.getString("type") + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + resultSet.getString("amount") + "<br><br><html>");
+                label1.setText(label1.getText() + "<html>" + resultSet.getString("date") + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + resultSet.getString("type") + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + resultSet.getString("amount") + "<br><br><html>");
                 if(resultSet.getString("type").equals("Deposit")){
                     balance += Integer.parseInt(resultSet.getString("amount"));
                 }
@@ -61,7 +61,7 @@ public class MiniStatement extends JFrame implements ActionListener {
             e.printStackTrace();
         }
 
-        buttonExit = new JButton("Exit");
+        buttonExit = new JButton("EXIT");
         buttonExit.setBounds(20, 500, 100, 25);
         buttonExit.addActionListener(this);
         buttonExit.setBackground(Color.BLACK);
@@ -72,12 +72,15 @@ public class MiniStatement extends JFrame implements ActionListener {
         setSize(400, 600);
         setLayout(null);
         setLocation(20, 20);
+        setUndecorated(true);
         setVisible(true);
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        setVisible(false);
+        if(e.getSource() == buttonExit){
+            setVisible(false);
+        }
     }
 
     public static void main(String[] args) {

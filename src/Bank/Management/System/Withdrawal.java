@@ -57,6 +57,7 @@ public class Withdrawal extends JFrame implements ActionListener {
         setLayout(null);
         setSize(1550, 1080);
         setLocation(0, 0);
+        setUndecorated(true);
         setVisible(true);
     }
 
@@ -88,6 +89,7 @@ public class Withdrawal extends JFrame implements ActionListener {
                     }
                     if(Integer.parseInt(amount) >= 10000){
                         JOptionPane.showMessageDialog(null, "Please Enter Amount Less Than Rs. 10000");
+                        return;
                     }
                     String query2 = "insert into bank values('"+pin+"', '"+date+"', 'Withdrawal', '"+amount+"')";
                     connection.statement.executeUpdate(query2);
