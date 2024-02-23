@@ -4,6 +4,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.ResultSet;
+import java.util.Date;
 
 public class FastCash extends JFrame implements ActionListener {
     JButton button100, button500, button1000, button2000, button5000, button10000, buttonBack;
@@ -81,7 +83,40 @@ public class FastCash extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-
+        if(e.getSource() == buttonBack){
+            new MainScreen(pin);
+            setVisible(false);
+        }
+        else{
+            String amount = ((JButton) e.getSource()).getText().substring(4);
+            JDBCConnection connection = new JDBCConnection();
+            Date date = new Date();
+            try{
+                String query1 = "select * from bank where pin = '"+pin+"'";
+                ResultSet resultSet = connection.statement.executeQuery(query1);
+                int balance = 0;
+                while(resultSet.next()){
+                    if(resultSet.getString("type").equals("Deposit")){
+                        balance += Integer.parseInt(resultSet.getString("amount"));
+                    }
+                    else{
+                        balance -= Integer.parseInt(resultSet.getString("amount"));
+                    }
+                }
+                if((e.getSource() != buttonBack) && (balance < Integer.parseInt(amount))){
+                    JOptionPane.showMessageDialog(null, "Insufficient Balance");
+                    return;
+                }
+                String query2 = "insert into bank values('"+pin+"', '"+date+"', 'Withdrawal', '"+amount+"')";
+                connection.statement.executeUpdate(query2);
+                JOptionPane.showMessageDialog(null, "Rs. " + amount + " is Debited Successfully!");
+                new MainScreen(pin);
+                setVisible(false);
+            }
+            catch(Exception E){
+                E.printStackTrace();
+            }
+        }
     }
 
     public static void main(String[] args) {
