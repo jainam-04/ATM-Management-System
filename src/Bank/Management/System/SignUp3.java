@@ -162,7 +162,7 @@ public class SignUp3 extends JFrame implements ActionListener {
 
         buttonSubmit = new JButton("SUBMIT");
         buttonSubmit.setFont(new Font("Railway", Font.BOLD, 18));
-        buttonSubmit.setBounds(220, 700, 100, 30);
+        buttonSubmit.setBounds(220, 700, 150, 30);
         buttonSubmit.setBackground(Color.BLACK);
         buttonSubmit.setForeground(Color.WHITE);
         buttonSubmit.addActionListener(this);
@@ -170,7 +170,7 @@ public class SignUp3 extends JFrame implements ActionListener {
 
         buttonCancel = new JButton("CANCEL");
         buttonCancel.setFont(new Font("Railway", Font.BOLD, 18));
-        buttonCancel.setBounds(420, 700, 100, 30);
+        buttonCancel.setBounds(420, 700, 150, 30);
         buttonCancel.setBackground(Color.BLACK);
         buttonCancel.setForeground(Color.WHITE);
         buttonCancel.addActionListener(this);
