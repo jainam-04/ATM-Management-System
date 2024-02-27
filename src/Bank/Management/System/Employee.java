@@ -75,6 +75,7 @@ public class Employee extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == buttonLogin){
+            new Employee_Login();
             setVisible(false);
         }
         else if(e.getSource() == buttonLogout){
@@ -82,6 +83,7 @@ public class Employee extends JFrame implements ActionListener {
             setVisible(false);
         }
         else if(e.getSource() == buttonRegister){
+            new Employee_Register();
             setVisible(false);
         }
     }
