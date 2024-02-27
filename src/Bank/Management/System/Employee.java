@@ -35,17 +35,23 @@ public class Employee extends JFrame implements ActionListener {
         label1.setBounds(230, 125, 450, 40);
         iiimage.add(label1);
 
+        JLabel label2 = new JLabel("(FOR EMPLOYEES)");
+        label2.setForeground(Color.BLACK);
+        label2.setFont(new Font("AvantGarde", Font.BOLD, 18));
+        label2.setBounds(300, 200, 450, 30);
+        iiimage.add(label2);
+
         buttonLogin = new JButton("LOGIN");
         buttonLogin.setBackground(Color.BLACK);
         buttonLogin.setForeground(Color.WHITE);
-        buttonLogin.setBounds(200, 200, 150, 30);
+        buttonLogin.setBounds(200, 300, 150, 30);
         buttonLogin.setFont(new Font("Arial", Font.BOLD, 14));
         buttonLogin.addActionListener(this);
         iiimage.add(buttonLogin);
 
         buttonLogout = new JButton("LOGOUT");
         buttonLogout.setFont(new Font("Arial", Font.BOLD, 14));
-        buttonLogout.setBounds(400, 200, 170, 30);
+        buttonLogout.setBounds(400, 300, 170, 30);
         buttonLogout.setBackground(Color.BLACK);
         buttonLogout.setForeground(Color.WHITE);
         buttonLogout.addActionListener(this);
@@ -55,7 +61,7 @@ public class Employee extends JFrame implements ActionListener {
         buttonRegister.setForeground(Color.WHITE);
         buttonRegister.setFont(new Font("Arial", Font.BOLD, 14));
         buttonRegister.setBackground(Color.BLACK);
-        buttonRegister.setBounds(280, 250, 200, 30);
+        buttonRegister.setBounds(280, 350, 200, 30);
         buttonRegister.addActionListener(this);
         iiimage.add(buttonRegister);
 
