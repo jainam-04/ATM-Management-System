@@ -12,7 +12,7 @@ public class AdminRegister extends JFrame implements ActionListener {
     Random random = new Random();
     long firstFour = (random.nextLong() % 9000L) + 1000L;
     String adminID = "Admin" + Math.abs(firstFour);
-    JButton buttonSubmit;
+    JButton buttonSubmit, buttonBack;
     JRadioButton radioButton1, radioButton2, radioButtonMarried, radioButtonUnmarried, radioButtonOther;
     JDateChooser dateChooser;
     JTextField textFieldName, textFieldFatherName, textFieldEmail, textFieldAddress, textFieldCity, textFieldPIN, textFieldState;
@@ -166,6 +166,14 @@ public class AdminRegister extends JFrame implements ActionListener {
         buttonSubmit.addActionListener(this);
         add(buttonSubmit);
 
+        buttonBack = new JButton("BACK");
+        buttonBack.setFont(new Font("Railway", Font.BOLD, 14));
+        buttonBack.setBackground(Color.BLACK);
+        buttonBack.setForeground(Color.WHITE);
+        buttonBack.setBounds(100, 710, 150, 30);
+        buttonBack.addActionListener(this);
+        add(buttonBack);
+
         getContentPane().setBackground(new Color(141, 178, 144));
         setLayout(null);
         setSize(850, 800);
@@ -202,7 +210,7 @@ public class AdminRegister extends JFrame implements ActionListener {
         String pin = textFieldPIN.getText();
         String state = textFieldState.getText();
         long pwd = (random.nextLong() % 9000L) + 1000L;
-        String password = name + Math.abs(pwd);
+        String password = name + "@" + Math.abs(pwd);
         try {
             if (e.getSource() == buttonSubmit) {
                 if (name.equals("")) {
@@ -217,6 +225,10 @@ public class AdminRegister extends JFrame implements ActionListener {
                     new Admin_Login();
                     setVisible(false);
                 }
+            }
+            else if(e.getSource() == buttonBack){
+                new Admin_Login();
+                setVisible(false);
             }
         }
         catch(Exception E){
