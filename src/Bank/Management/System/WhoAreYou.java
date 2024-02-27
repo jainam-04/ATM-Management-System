@@ -69,6 +69,7 @@ public class WhoAreYou extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == buttonAdmin){
+            new Admin();
             setVisible(false);
         }
         else if(e.getSource() == buttonEmployee){

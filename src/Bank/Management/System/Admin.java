@@ -69,7 +69,7 @@ public class Admin extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == buttonLogin){
-            JOptionPane.showMessageDialog(null, "You are logged in!");
+            new Admin_Login();
             setVisible(false);
         }
         else if(e.getSource() == buttonLogout){
