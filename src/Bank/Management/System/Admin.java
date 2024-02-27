@@ -77,6 +77,7 @@ public class Admin extends JFrame implements ActionListener {
             setVisible(false);
         }
         else if(e.getSource() == buttonRegister){
+            new AdminRegister();
             setVisible(false);
         }
     }
