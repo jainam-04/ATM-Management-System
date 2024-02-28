@@ -73,6 +73,7 @@ public class WhoAreYou extends JFrame implements ActionListener {
             setVisible(false);
         }
         else if(e.getSource() == buttonEmployee){
+            new Employee();
             setVisible(false);
         }
         else if(e.getSource() == buttonCustomer){

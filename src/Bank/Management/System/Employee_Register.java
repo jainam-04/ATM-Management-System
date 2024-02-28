@@ -229,6 +229,7 @@ public class Employee_Register extends JFrame implements ActionListener {
                     JDBCConnection connection = new JDBCConnection();
                     String query = "insert into employee_register values('"+formNo+"', '"+name+"', '"+fatherName+"', '"+dob+"', '"+gender+"', '"+email+"', '"+marriedStatus+"', '"+address+"', '"+city+"', '"+pin+"', '"+state+"')";
                     connection.statement.executeUpdate(query);
+                    new Employee_Register2(formNo);
                     setVisible(false);
                 }
             }
