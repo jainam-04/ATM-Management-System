@@ -178,7 +178,7 @@ public class AdminRegister extends JFrame implements ActionListener {
         setLayout(null);
         setSize(850, 800);
         setLocation(360, 40);
-//        setUndecorated(true);
+        setUndecorated(true);
         setVisible(true);
     }
 

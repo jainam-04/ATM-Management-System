@@ -71,8 +71,8 @@ public class MiniStatement extends JFrame implements ActionListener {
         getContentPane().setBackground(new Color(255, 204, 204));
         setSize(400, 600);
         setLayout(null);
-        setLocation(20, 20);
         setUndecorated(true);
+        setLocation(20, 20);
         setVisible(true);
     }
 

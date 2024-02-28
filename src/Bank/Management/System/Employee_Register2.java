@@ -147,7 +147,7 @@ public class Employee_Register2 extends JFrame implements ActionListener {
         setSize(850, 750);
         setLocation(450, 80);
         getContentPane().setBackground(new Color(93, 192, 154));
-//        setUndecorated(true);
+        setUndecorated(true);
         setVisible(true);
     }
 

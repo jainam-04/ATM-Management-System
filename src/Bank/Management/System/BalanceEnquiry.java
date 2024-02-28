@@ -60,9 +60,9 @@ public class BalanceEnquiry extends JFrame implements ActionListener {
         label3.setText("" + balance);
 
         setLayout(null);
+        setUndecorated(true);
         setSize(1550, 1080);
         setLocation(0, 0);
-        setUndecorated(true);
         setVisible(true);
     }
 
